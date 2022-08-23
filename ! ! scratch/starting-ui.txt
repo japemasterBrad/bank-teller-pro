@@ -1,0 +1,17 @@
+root = tk.Tk()
+root.title("Bank Teller Pro")
+root.geometry("1280x720")
+
+frame_expense_list = tk.Frame(root)
+frame_expense_list.pack(side="left")
+
+frame_income_graph = tk.Frame(root, background="RED")
+frame_income_graph.pack(side="right", padx=200, pady=200)
+
+test_button_left = tk.Button(frame_expense_list, text="HELLOOOOOO")
+test_button_left.pack()
+
+test_button_right = tk.Button(frame_income_graph, text="GOODBYEEEE")
+test_button_right.pack()
+
+root.mainloop()
