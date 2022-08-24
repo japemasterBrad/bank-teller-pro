@@ -6,6 +6,7 @@ import categories as cat
 import colours as col
 import sys
 
+db.Database()
 
 def create_expense():
     name = input("Name your expense\n")
@@ -18,7 +19,11 @@ def create_expense():
     category = input("Categorise your expense\n")
     recurring = input("Does it recur monthly? (0 = no, 1 = yes)\n")
     
+<<<<<<< HEAD
     db.Expense.create_expense(None, name, start_date, category, recurring)
+=======
+    db.Database.create_expense(name, category, recurring)
+>>>>>>> refs/remotes/origin/master
     
     print("Expense submitted successfully!")
     input("Press enter to proceed...")
