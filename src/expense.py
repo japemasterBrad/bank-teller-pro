@@ -1,26 +1,14 @@
-from os import mkdir
+
 import sqlite3 as sql
 import colours as col
 import categories as cat
 import sys
 
-<<<<<<< HEAD:src/expense.py
 class Expense:    
     def __init__(self):
-        print(f"\n {sys.path}")
-        # db/expenses.db
-        conn = sql.connect("/db/expenses.db")
-=======
-class Database:    
-    def __init__(self):
-        try:
-            conn = sql.connect("expenses.db")
-        except (e):
-            mkdir("../db")
-        finally:
+        print(f"sys.path\n {sys.path}")
 
-            conn = sql.connect("expenses.db")
->>>>>>> refs/remotes/origin/master:src/database.py
+        conn = sql.connect("expenses.db")
         cur = conn.cursor()
         cur.execute("CREATE TABLE IF NOT EXISTS expenses("
                     "exp_id INT PRIMARY KEY NOT NULL,"
@@ -34,16 +22,11 @@ class Database:
         conn.close()
        
         
-<<<<<<< HEAD:src/expense.py
-    def create_expense(self, name, start_date, category, recurring):
-        conn = sql.connect("./db/expenses.db")
-=======
-    def create_expense(name, category, recurring):
+    def create_expense(self, name, category, recurring):
         conn = sql.connect("expenses.db")
->>>>>>> refs/remotes/origin/master:src/database.py
         cur = conn.cursor()
-        cur.execute("INSERT INTO expenses (exp_id, exp_name, exp_category, exp_monthly)"
-                    "VALUES ((?) (?) (?) (?))", (None, name, category, recurring))
+        cur.execute("INSERT INTO expenses (exp_name, exp_category, exp_monthly)"
+                    "VALUES (?) (?) (?)", (name, category, recurring))
         conn.commit()
         conn.close()
         

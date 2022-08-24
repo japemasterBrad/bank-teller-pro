@@ -6,11 +6,11 @@ import categories as cat
 import colours as col
 import sys
 
-db.Database()
+db.Expense()
 
 def create_expense():
     name = input("Name your expense\n")
-    start_date = input("When does it start? (yyyy-mm-dd) (Enter for today)\n")
+    start_date = input("When does it start? (yyyy-mm-dd) (Enter for today)")
     
     if start_date == "":
         today = dt.date.today()
@@ -19,11 +19,8 @@ def create_expense():
     category = input("Categorise your expense\n")
     recurring = input("Does it recur monthly? (0 = no, 1 = yes)\n")
     
-<<<<<<< HEAD
-    db.Expense.create_expense(None, name, start_date, category, recurring)
-=======
-    db.Database.create_expense(name, category, recurring)
->>>>>>> refs/remotes/origin/master
+    db.Expense.create_expense(None, name, category, recurring)
+    # db.Database.create_expense(name, category, recurring)
     
     print("Expense submitted successfully!")
     input("Press enter to proceed...")
@@ -47,21 +44,8 @@ def delete_expense():
     
 def menu():
     db.Expense()
-    # col.Colours
-    # cat.Categories
-    
-    # conn = sql.connect("expenses.db")
-    # cur = conn.cursor()
-    # cur.execute("CREATE TABLE IF NOT EXISTS expenses("
-    #             "exp_id INT PRIMARY KEY NOT NULL,"
-    #             "exp_name VARCHAR(50) NOT NULL,"
-    #             "exp_start_date DATE NOT NULL,"
-    #             "exp_category VARCHAR(50),"
-    #             "exp_monthly INT NOT NULL"
-    #             ")"
-    #             )
-    # conn.commit()
-    # conn.close()
+    col.Colours
+    cat.Categories
     
     print("What do you want to do?")    
     print("1) Add Expense")    
