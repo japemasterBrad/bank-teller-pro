@@ -1,7 +1,7 @@
 import tkinter as tk
 import datetime as dt
 import sqlite3 as sql
-import database as db
+import expense as db
 import categories as cat
 import colours as col
 import sys
@@ -18,7 +18,7 @@ def create_expense():
     category = input("Categorise your expense\n")
     recurring = input("Does it recur monthly? (0 = no, 1 = yes)\n")
     
-    db.Database.create_expense(name, start_date, category, recurring)
+    db.Expense.create_expense(None, name, start_date, category, recurring)
     
     print("Expense submitted successfully!")
     input("Press enter to proceed...")
@@ -26,24 +26,37 @@ def create_expense():
 
 def read_expenses():
     print("Reading expenses from main")
-    rows = db.Database.read_expenses()
+    rows = db.Expense.read_expenses()
     print(rows)
 
     
 def update_expense():
     print("Updating expense from main")
-    db.Database.update_expense()
+    db.Expense.update_expense()
 
 
 def delete_expense():
     print("Deleting expense from main")
     row_to_delete = input("Input row name to delete?")
-    db.Database.delete_expense(row_to_delete)
+    db.Expense.delete_expense(row_to_delete)
     
 def menu():
-    db.Database
-    col.Colours
-    cat.Categories
+    db.Expense()
+    # col.Colours
+    # cat.Categories
+    
+    # conn = sql.connect("expenses.db")
+    # cur = conn.cursor()
+    # cur.execute("CREATE TABLE IF NOT EXISTS expenses("
+    #             "exp_id INT PRIMARY KEY NOT NULL,"
+    #             "exp_name VARCHAR(50) NOT NULL,"
+    #             "exp_start_date DATE NOT NULL,"
+    #             "exp_category VARCHAR(50),"
+    #             "exp_monthly INT NOT NULL"
+    #             ")"
+    #             )
+    # conn.commit()
+    # conn.close()
     
     print("What do you want to do?")    
     print("1) Add Expense")    

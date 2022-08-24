@@ -13,6 +13,8 @@ class Colours:
         conn.commit()
         conn.close()
         
+        print("Loaded Colours")
+        
     def add_new_colour(self, name, hex_value):
         conn = sql.connect("./db/colours.db")
         cur = conn.cursor()
